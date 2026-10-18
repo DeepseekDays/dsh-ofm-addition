@@ -1,0 +1,11 @@
+# dsh-ofm-addition bundle patch.
+#
+# 一行 insert 即挂载 Host 半身；浏览器半身由 package.json 的 dsh.client 声明，
+# 并绑定在 name 为裸包名的这一行上（子路径行不会携带半身）。
+#
+# 它必须挂在 dsh-our-free-model 之后：附属插件读的是会话事件，不替换任何服务，
+# 所以顺序只影响日志可读性，不影响正确性。
+- insert:
+    - id: ofm-addition
+      name: 'dsh-ofm-addition'
+      config: {}

@@ -1,0 +1,52 @@
+{
+  "name": "dsh-ofm-addition",
+  "version": "0.4.0",
+  "type": "module",
+  "description": "OFM Addition — Our Free Model 的附属插件。两项能力：①回答因达到输出 token 上限被截断时自动替你发送「继续」（连续次数可设上限或「不限」，并在接近上下文窗口时自动停下）；②每个 Our Free Model 路由的请求参数表——思考档位、输出上限、温度与停止序列，可逐模型调整、一键顶配，或让一个模型按各模型声明的能力填写。",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "src",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "our-free-model",
+    "addon",
+    "model-parameters",
+    "reasoning-effort"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeepseekDays/dsh-ofm-addition.git"
+  },
+  "homepage": "https://github.com/DeepseekDays/dsh-ofm-addition#readme",
+  "bugs": {
+    "url": "https://github.com/DeepseekDays/dsh-ofm-addition/issues"
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": []
+    }
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test test/model-params.test.mjs test/policy.test.mjs test/ledger.test.mjs test/host.test.mjs test/client.test.mjs test/transcript.test.mjs test/manifest.test.mjs"
+  }
+}
